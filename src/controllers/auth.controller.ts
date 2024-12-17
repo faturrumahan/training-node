@@ -29,9 +29,19 @@ const register = async (req: Request, res: Response, next: NextFunction) => {
   }
 }
 
+const refreshToken = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const user = await SAuth.refreshToken(req.body)
+    res.json(formatResponse("T", "Refresh Token Success", user))
+  } catch (error) {
+    next(error)
+  }
+}
+
 const CAuth = {
   login,
   register,
+  refreshToken,
 }
 
 export default CAuth

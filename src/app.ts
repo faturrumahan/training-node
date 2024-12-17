@@ -1,6 +1,6 @@
-import express from "express"
+import express, { NextFunction, Request, Response } from "express"
 import logger from "morgan"
-import { env } from "@/configs"
+import { env, loggerWinston } from "@/configs"
 import coreRouter from "./routes"
 import { errorHandler } from "./middlewares"
 
@@ -8,6 +8,11 @@ const app = express()
 
 app.use(logger("dev"))
 app.use(express.json())
+
+app.use((req: Request, res: Response, next: NextFunction) => {
+  loggerWinston.info(`[WINSTON] Request - ${req.method} - ${req.url}`)
+  next()
+})
 
 app.use("/core", coreRouter)
 

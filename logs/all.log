@@ -1,0 +1,4 @@
+2024-12-17 16:34:15:3415 [[32minfo[39m] [32m[WINSTON] Request - GET - /core/user[39m
+2024-12-17 16:34:15:3415 [[31merror[39m] [31mjwt expired[39m
+2024-12-17 16:34:32:3432 [[32minfo[39m] [32m[WINSTON] Request - POST - /core/auth/login[39m
+2024-12-17 16:36:52:3652 [32minfo[39m: [32m[WINSTON] Request - POST - /core/auth/login[39m
