@@ -21,9 +21,20 @@ const getUserById = async (req: Request, res: Response, next: NextFunction) => {
   }
 }
 
+const patchUserRole = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const { id, role } = req.params
+    const updatedUser = await SUser.patchUserRole(id, role as "ADMIN" | "USER")
+    res.json(formatResponse("T", "Update User Role Success", updatedUser))
+  } catch (error) {
+    next(error)
+  }
+}
+
 const CUser = {
   getAllUsers,
   getUserById,
+  patchUserRole,
 }
 
 export default CUser

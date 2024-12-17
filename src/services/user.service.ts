@@ -42,9 +42,29 @@ const getUserById = async (id: string) => {
   }
 }
 
+const patchUserRole = async (id: string, role: "ADMIN" | "USER") => {
+  const user = await prisma.user.update({
+    where: {
+      id,
+    },
+    data: {
+      role,
+    },
+    select: {
+      id: true,
+      email: true,
+      name: true,
+      role: true,
+    },
+  })
+
+  return { user }
+}
+
 const SUser = {
   getAllUsers,
   getUserById,
+  patchUserRole,
 }
 
 export default SUser
