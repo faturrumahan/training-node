@@ -1,6 +1,6 @@
 generator client {
-  provider         = "prisma-client-js"
-  output           = "../generated/core"
+  provider = "prisma-client-js"
+  output   = "../generated/core"
 }
 
 datasource db {
@@ -9,17 +9,56 @@ datasource db {
 }
 
 model User {
-  id            String      @id @default(uuid())
-  name          String
-  email         String
-  password      String
-  refreshToken  String?     @default("")
-  role          Role        @default(USER)
-  createdAt     DateTime    @default(now())
-  updatedAt     DateTime    @updatedAt
+  id           String        @id @default(uuid())
+  name         String
+  email        String
+  password     String
+  refreshToken String?       @default("")
+  role         Role          @default(USER)
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  tasks        Task[]
+  projects     Project[]
+  userProjects UserProject[]
 }
 
 enum Role {
   USER
   ADMIN
+}
+
+model Task {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  status      String
+  dueDate     DateTime
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  assigneeId  String
+  projectId   String
+  assignee    User     @relation(fields: [assigneeId], references: [id], onDelete: Cascade)
+  project     Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+}
+
+model Project {
+  id           String        @id @default(uuid())
+  title        String
+  description  String
+  status       String
+  deadline     DateTime
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  ownerId      String
+  owner        User          @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  tasks        Task[]
+  userProjects UserProject[]
+}
+
+model UserProject {
+  id        String  @id @default(uuid())
+  userId    String
+  projectId String
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
 }

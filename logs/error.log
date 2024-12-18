@@ -1,1 +1,77 @@
 2024-12-17 16:34:15:3415 [[31merror[39m] [31mjwt expired[39m
+2024-12-18 06:22:17:2217 [31merror[39m:
+[31mProject not found[39m
+2024-12-18 13:20:28:2028 [31merror[39m:
+[31mTask not found[39m
+2024-12-18 13:24:27:2427 [31merror[39m:
+[31mjwt expired[39m
+2024-12-18 13:25:44:2544 [31merror[39m:
+[31m[39m
+[31mInvalid `prisma.project.delete()` invocation:[39m
+
+
+[31mAn operation failed because it depends on one or more records that were required but not found. Record to delete does not exist.[39m
+2024-12-18 13:27:04:274 [31merror[39m:
+[31m[39m
+[31mInvalid `prisma.project.delete()` invocation:[39m
+
+
+[31mAn operation failed because it depends on one or more records that were required but not found. Record to delete does not exist.[39m
+2024-12-18 13:32:52:3252 [31merror[39m:
+[31m[39m
+[31mInvalid `prisma.project.delete()` invocation:[39m
+
+
+[31mForeign key constraint violated: `UserProject_projectId_fkey (index)`[39m
+2024-12-18 13:33:00:330 [31merror[39m:
+[31m[39m
+[31mInvalid `prisma.project.delete()` invocation:[39m
+
+
+[31mAn operation failed because it depends on one or more records that were required but not found. Record to delete does not exist.[39m
+2024-12-18 13:36:46:3646 [31merror[39m:
+[31m[39m
+[31mInvalid `prisma.project.delete()` invocation:[39m
+
+
+[31mAn operation failed because it depends on one or more records that were required but not found. Record to delete does not exist.[39m
+2024-12-18 13:38:53:3853 [31merror[39m:
+[31m[39m
+[31mInvalid `prisma.task.create()` invocation:[39m
+
+[31m{[39m
+[31m  data: {[39m
+[31m    title: "asd",[39m
+[31m    description: "qwe",[39m
+[31m    status: "zxc",[39m
+[31m    assignee: {[39m
+[31m      connect: {[39m
+[31m        id: "6aa2009e-9691-471d-bce4-7cb594c9ab87"[39m
+[31m      }[39m
+[31m    },[39m
+[31m    project: {[39m
+[31m      connect: {[39m
+[31m        id: "5a0f273e-45d6-42b9-a0b3-6e823da220dd"[39m
+[31m      }[39m
+[31m    },[39m
+[31m+   dueDate: DateTime[39m
+[31m  },[39m
+[31m  include: {[39m
+[31m    assignee: true,[39m
+[31m    project: true[39m
+[31m  }[39m
+[31m}[39m
+
+[31mArgument `dueDate` is missing.[39m
+2024-12-18 13:42:44:4244 [31merror[39m:
+[31m[39m
+[31mInvalid `prisma.project.delete()` invocation:[39m
+
+
+[31mAn operation failed because it depends on one or more records that were required but not found. Record to delete does not exist.[39m
+2024-12-18 13:46:27:4627 [31merror[39m:
+[31m[39m
+[31mInvalid `prisma.project.delete()` invocation:[39m
+
+
+[31mAn operation failed because it depends on one or more records that were required but not found. Record to delete does not exist.[39m
